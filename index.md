@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/github11271/aaa/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/github11271/aaa/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<style type="text/css">
+		body {background-color:#696969;color:white}
+		</style>
+		<title>留言板</title>
+	</head>
+	<body>
+		<div><h1>留言板</h1></div>
+		<hr width="1500" align="left"/>
+		<div id="div1">			
+		</div>		
+		<div>
+			<form>
+				<input id="username" type="text"/>
+				<br/>
+				<p></p>
+				<textarea id="message" rows="10" cols="150"/></textarea>				
+				<br/>				
+			</form>
+			<button onclick="publish();">发布</button>
+		</div>
+		<script>
+		var number=1
+		function publish()
+		{
+			
+			var message=document.getElementById("message").value;
+			var username=document.getElementById("username").value;
+			if(message.length!=0){
+				if(username.length!=0)
+				{
+					
+					document.getElementById("div1").innerHTML+=number+"# "+username+":"+"<br/>"+message+"<br/>";
+					document.getElementById("div1").innerHTML+="<p>_ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>";
+					number++;
+				}
+				else
+				{
+					document.getElementById("div1").innerHTML+=number+"# 匿名:"+"<br/>"+message+"<br/>";
+					document.getElementById("div1").innerHTML+="<p>_ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </p>";
+					number++;
+				}
+			}			
+		}
+		</script>
+	</body>
+</html>
